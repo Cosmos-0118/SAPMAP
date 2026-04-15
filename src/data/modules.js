@@ -1,0 +1,83 @@
+export const modulesData = {
+  sd: {
+    id: 'sd',
+    title: 'Sales & Distribution (SD)',
+    description: 'Manages customer orders, delivering Royal Enfield motorcycles to dealerships.',
+    icon: 'Truck',
+    steps: [
+      { id: 1, title: 'Create New Customer (XD01)', data: { AccountGroup: '0001 (Sold-to party)', CompanyCode: 'RE01', SalesOrg: 'US01', DistChannel: '10', Division: '00', Title: 'Company', Name: 'Dallas Dealership LLC', SearchTerm: 'DALLAS_RE', Address: '123 Main St, Dallas, TX 75001', TransportationZone: 'US-TX' } },
+      { id: 2, title: 'Create Contact Person (VAP1)', data: { Customer: '100056 (Dallas Dealership)', FirstName: 'John', LastName: 'Doe', Department: 'Sales', Function: 'Sales Manager', Phone: '+1-214-555-0199', Email: 'johndoe@dallasre.com' } },
+      { id: 3, title: 'Create BP Relationship (BP)', data: { BusinessPartner1: 'Dallas Dealership LLC', BusinessPartner2: 'John Doe', RelationshipCategory: 'BUR001 (Has Contact Person)', ValidFrom: 'Current Date', ValidTo: '12/31/9999' } },
+      { id: 4, title: 'Create Customer Request (VA11)', data: { InquiryType: 'IN', SalesOrg: 'US01', DistChannel: '10', Division: '00', SoldToParty: '100056', PONumber: 'REQ-1002', Material: 'GT-650-RED', Quantity: '15 EA' } },
+      { id: 5, title: 'Create Customer Quotation (VA21)', data: { QuotationType: 'QT', SalesOrg: 'US01', DistChannel: '10', Division: '00', SoldToParty: '100056', ValidFrom: 'Current Date', ValidTo: '+30 Days', Material: 'GT-650-RED', OrderQuantity: '15 EA', NetValue: '$90,000.00' } },
+      { id: 6, title: 'Create Sales Order Ref Quotation (VA01)', data: { OrderType: 'OR', SalesOrg: 'US01', DistChannel: '10', Division: '00', QuotationRef: 'Quotation Num', SoldToParty: '100056', RequestDeliveryDate: '+14 Days', Material: 'GT-650-RED', OrderQuantity: '15 EA' } },
+      { id: 7, title: 'Check Stock Status (MMBE)', data: { Material: 'GT-650-RED', Plant: 'US01', StorageLocation: 'FG01', UnrestrictedUse: '150 EA', Reserved: '15 EA', OnOrderStock: '50 EA' } },
+      { id: 8, title: 'Track Sales Order (VA03)', data: { SalesOrder: 'System Generated', SoldToParty: '100056', OverallStatus: 'In Process', DeliveryStatus: 'Not Delivered', TotalValue: '$90,000.00' } },
+      { id: 9, title: 'Start Delivery Process (VL01N)', data: { ShippingPoint: 'US01', SelectionDate: 'Delivery Date', SalesOrder: 'System Generated', DeliveryType: 'LF (Outbound Delivery)', Route: 'Ocean Freight -> US', LoadingGroup: '0001', TransportationGroup: '0001' } },
+      { id: 10, title: 'Track Sales Order (VA03)', data: { SalesOrder: 'System Generated', DeliveryStatus: 'Being Processed', NextStep: 'Picking' } },
+      { id: 11, title: 'Pick Materials & Post Goods Issue (VL02N)', data: { OutboundDelivery: 'System Generated', PickQuantity: '15 EA', WarehouseNumber: 'WH01', StorageType: '001', StorageBin: '01-A-01', PostGoodsIssue: 'Executed', Status: 'Completed' } },
+      { id: 12, title: 'Check Stock Status (MMBE)', data: { Material: 'GT-650-RED', Plant: 'US01', StorageLocation: 'FG01', UnrestrictedUse: '135 EA (Deducted 15)' } },
+      { id: 13, title: 'Create Billing Document (VF01)', data: { Document: 'Outbound Delivery Num', BillingType: 'F2 (Invoice)', Payer: '100056', BillingDate: 'Current Date', NetValue: '$90,000.00', TaxAmount: '$7,200.00' } },
+      { id: 14, title: 'Display Billing & Post Invoice (VF03)', data: { BillingDocument: 'System Generated', AccDocStatus: 'Cleared', TotalValue: '$97,200.00' } },
+      { id: 15, title: 'Post Receipt of Customer Payment (F-28)', data: { DocumentDate: 'Current Date', CompanyCode: 'RE01', Currency: 'USD', Account: 'Bank Acct Num', Amount: '$97,200.00', ValueDate: 'Current Date', CustomerAccount: '100056', PaymentStatus: 'Cleared' } },
+      { id: 16, title: 'Review Document Flow (VA03)', data: { SalesOrder: 'System Generated', Status: 'Completed', Flow: 'Inquiry -> Quotation -> Standard Order -> Outbound Delivery -> Invoice -> Accounting Document' } }
+    ]
+  },
+  mm: {
+    id: 'mm',
+    title: 'Materials Management (MM)',
+    description: 'Procurement of raw materials for manufacturing at Royal Enfield.',
+    icon: 'PackageSearch',
+    steps: [
+      { id: 1, title: 'Create Vendor (XK01)', data: { AccountGroup: '0001', CompanyCode: 'RE01', PurchOrg: 'PUR1', Title: 'Company', Name: 'Texas Metal Corp', SearchTerm: 'TEXAS_METAL', Street: '456 Industrial Blvd', City: 'Dallas', Region: 'TX', PostalCode: '75005', Country: 'US', OrderCurrency: 'USD' } },
+      { id: 2, title: 'Create Material (MM01)', data: { MaterialType: 'ROH (Raw Material)', IndustrySector: 'M (Mechanical Engineering)', Material: 'MAT-ALLOY-01', Description: 'Cast Alloy Wheel', BaseUnit: 'EA', MatlGroup: '01', PurchasingGroup: '001' } },
+      { id: 3, title: 'Change Material (MM02)', data: { Material: 'MAT-ALLOY-01', UpdateView: 'Purchasing', SafetyStock: '50 EA', MinLotSize: '100 EA' } },
+      { id: 4, title: 'Display Stock (MMBE)', data: { Material: 'MAT-ALLOY-01', Plant: 'US01', StorageLocation: 'RM01', UnrestrictedStock: '10 EA' } },
+      { id: 5, title: 'Create Purchase Requisition (ME51N)', data: { DocumentType: 'NB (Standard)', Material: 'MAT-ALLOY-01', Quantity: '500 EA', DeliveryDate: '+30 Days', Plant: 'US01', StorageLocation: 'RM01', Requisitioner: 'Prod Team' } },
+      { id: 6, title: 'Manage Stock (MD04)', data: { Material: 'MAT-ALLOY-01', Plant: 'US01', MRPType: 'PD', AvailableQuantity: '10 EA', RequirementQuantity: '500 EA' } },
+      { id: 7, title: 'Create RFQ (ME41)', data: { RFQType: 'AN', RFQDate: 'Current Date', QuotationDeadline: '+7 Days', PurchOrg: 'PUR1', PurchGroup: '001', ReferencePR: 'PR-Number', Vendor: 'Texas Metal Corp' } },
+      { id: 8, title: 'Create Quotation from Vendor (ME47)', data: { RFQNumber: 'System Generated', Vendor: 'Texas Metal Corp', NetPrice: '$70.00 / EA', ValidTo: '+30 Days' } },
+      { id: 9, title: 'Price Based Bid Evaluation (ME49)', data: { RFQSelection: 'Selection Criteria', Vendor1: 'Texas Metal Corp ($70/EA)', Vendor2: 'Other Corp ($75/EA)', Result: 'Texas Metal Corp Selected', Action: 'Send Rejection Letter to Others' } },
+      { id: 10, title: 'Create PO Referencing an RFQ (ME21N)', data: { DocumentType: 'NB (Standard PO)', Vendor: 'Texas Metal Corp', PurchOrg: 'PUR1', PurchGroup: '001', CompanyCode: 'RE01', ReferenceRFQ: 'System Generated', Material: 'MAT-ALLOY-01', OrderQuantity: '500 EA', NetPrice: '$70.00' } },
+      { id: 11, title: 'Display Purchase Order (ME23N)', data: { PONumber: 'System Generated', Status: 'Sent to Vendor', TotalValue: '$35,000.00' } },
+      { id: 12, title: 'Post Goods Receipt for PO (1st) (MIGO)', data: { MovementType: '101 (GR goods receipt)', PONumber: 'System Generated', Material: 'MAT-ALLOY-01', QuantityReceived: '250 EA', DocumentDate: 'Current Date', PostingDate: 'Current Date' } },
+      { id: 13, title: 'Check Received Goods (QA32)', data: { InspectionLot: 'Lot Generated', Material: 'MAT-ALLOY-01', Plant: 'US01', UsageDecision: 'Accepted', ApprovedQuantity: '250 EA' } },
+      { id: 14, title: 'Check Physical Goods Receipt (LS24)', data: { WarehouseNumber: 'WH01', Material: 'MAT-ALLOY-01', Plant: 'US01', StorageType: '001', StorageBin: 'GR-ZONE-1', AvailableStock: '260 EA' } },
+      { id: 15, title: 'Create & Post 1st Supplier Invoice (MIRO)', data: { InvoiceDate: 'Current Date', Reference: 'Vendor Inv Number', PONumber: 'System Generated', Amount: '$17,500.00', TaxAmount: '$1,400.00', BaselineDate: 'Current Date' } },
+      { id: 16, title: 'Display Purchase Order History (1st) (ME23N)', data: { PONumber: 'System Generated', DeliveredQuantity: '250 EA', InvoicedQuantity: '250 EA', DeliveryValue: '$17,500.00' } },
+      { id: 17, title: 'Display Document Flow (ALV)', data: { PONumber: 'System Generated', Status: 'Partially Delivered / Invoiced' } },
+      { id: 18, title: 'Post Goods Receipt for PO (2nd) (MIGO)', data: { MovementType: '101 (GR goods receipt)', PONumber: 'System Generated', Material: 'MAT-ALLOY-01', QuantityReceived: '250 EA', DocumentDate: 'Current Date', PostingDate: 'Current Date' } },
+      { id: 19, title: 'Check Physical Goods Receipt (LS24)', data: { WarehouseNumber: 'WH01', Material: 'MAT-ALLOY-01', Plant: 'US01', StorageType: '001', StorageBin: 'GR-ZONE-1', AvailableStock: '510 EA' } },
+      { id: 20, title: 'Create & Post 2nd Supplier Invoice (MIRO)', data: { InvoiceDate: 'Current Date', Reference: 'Vendor Inv Number 2', PONumber: 'System Generated', Amount: '$17,500.00', TaxAmount: '$1,400.00', BaselineDate: 'Current Date' } },
+      { id: 21, title: 'Post Outgoing Payment (F-53)', data: { DocumentDate: 'Current Date', CompanyCode: 'RE01', Currency: 'USD', Account: 'Bank Acct Num', Amount: '$37,800.00 (Incl Tax)', AccountVendor: 'Vendor Code' } },
+      { id: 22, title: 'Display Vendor Balance (FBL1N)', data: { VendorAccount: 'Texas Metal Corp', CompanyCode: 'RE01', NormalItems: 'Cleared', OpenItems: '0.00 USD' } },
+      { id: 23, title: 'Display PO History (2nd) (ME23N)', data: { PONumber: 'System Generated', DeliveredQuantity: '500 EA', InvoicedQuantity: '500 EA', Status: 'Completed' } },
+      { id: 24, title: 'Display Balance & Line Item List (FS10N)', data: { Account: 'GR/IR Clearing', FiscalYear: 'Current Year', Balance: '0.00 USD', Status: 'Balanced' } }
+    ]
+  },
+  pp: {
+    id: 'pp',
+    title: 'Production Planning (PP)',
+    description: 'Planning the assembly and manufacturing iterations of motorcycles.',
+    icon: 'Factory',
+    steps: [
+      { id: 1, title: 'Change Material Master Record (MM02)', data: { Material: 'HIM-450-FG', View: 'MRP 1', Plant: 'US01', MRPType: 'PD', MRPController: '001', LotSize: 'EX (Lot-for-lot)' } },
+      { id: 2, title: 'Change Routing (CA02)', data: { Material: 'HIM-450-FG', Plant: 'US01', Group: 'Assembly', GroupCounter: '1', Operation: '0010', WorkCenter: 'ASSY-01', StandardValueChg: 'Setup Time Reduced by 5 Mins' } },
+      { id: 3, title: 'Display Product Group (MC85)', data: { ProductGroup: 'ADV-TOURERS', Plant: 'US01', Members: 'Himalayan 450, Scram 411', Proportion: '70% Him, 30% Scram' } },
+      { id: 4, title: 'Create SOP (MC81)', data: { ProductGroup: 'ADV-TOURERS', Plant: 'US01', Version: 'Active Version', TargetSales: '10,000 Units', Period: 'Q3', ProductionPlan: 'Calculate Synchronous to Sales' } },
+      { id: 5, title: 'Transfer SOP to Demand Mgmt (MC74)', data: { Option: 'Transfer to Active Version', Version: '00', MaterialStrategy: '40 (Planning with final assembly)' } },
+      { id: 6, title: 'Review Demand Management (MD63)', data: { Material: 'HIM-450-FG', Plant: 'US01', ReqType: 'VSF', PlannedQuantity: '7,000 Units (70% of 10k)' } },
+      { id: 7, title: 'Run MPS with MRP (MD41)', data: { ProcessingKey: 'NETCH', CreatePurchaseReq: '1', DeliverySchedules: '3', CreateMRPList: '1', PlanningMode: '1 (Adapt planning data)' } },
+      { id: 8, title: 'Review Stock/Requirements List (MD04)', data: { Material: 'HIM-450-FG', Plant: 'US01', AvailableQuantity: '1,000 Units', Requirement: '7,000 Units', PlannedOrderCreated: 'Yes, for 6,000 Units' } },
+      { id: 9, title: 'Convert Planned Order to Prod Order (CO40)', data: { PlannedOrder: 'System Generated', OrderType: 'PP01', Plant: 'US01', TotalQuantity: '6,000 Units', BasicStartDate: 'Current Date' } },
+      { id: 10, title: 'Receive Goods in Inventory (MIGO)', data: { MovementType: '101', Material: 'Chassis, Engine', Plant: 'US01', StorageLoc: 'RM01', Quantity: '6,000 Sets Received from Vendors' } },
+      { id: 11, title: 'Issue Goods to Production Order (MIGO)', data: { MovementType: '261', OrderNumber: 'Production Order Num', Material: 'Chassis, Engine, Wheels', Plant: 'US01', Quantity: '6,000 Sets Issued' } },
+      { id: 12, title: 'Review Production Order Status (CO03)', data: { OrderNumber: 'System Generated', SystemStatus: 'REL (Released), MACM (Material committed), GMPS (Goods movement posted)' } },
+      { id: 13, title: 'Confirm Production Completion (CO11N)', data: { OrderNumber: 'System Generated', Operation: 'All Operations Completed', YieldToConfirm: '6,000 Units', PostingDate: 'Current Date' } },
+      { id: 14, title: 'Review Production Order Status (CO03)', data: { OrderNumber: 'System Generated', SystemStatus: 'CNF (Confirmed), DLV (Delivered)' } },
+      { id: 15, title: 'Receive Goods from Production Order (MIGO)', data: { MovementType: '101', OrderNumber: 'System Generated', Material: 'HIM-450-FG', DeliveredQuantity: '6,000 Units', StorageLoc: 'FG01', Batch: 'B-HIM-Q3' } },
+      { id: 16, title: 'Review Costs Assigned to Order (CO03 - Costs)', data: { OrderNumber: 'System Generated', TotalTargetCost: '$12.0M', TotalActualCost: '$11.8M', Variance: '-$0.2M (Favorable)' } },
+      { id: 17, title: 'Settle Costs of Production Order (KO88)', data: { OrderNumber: 'System Generated', SettlementPeriod: 'Current Month', SettlementType: 'FULL', Receiver: 'Material HIM-450-FG via COPA' } }
+    ]
+  }
+};
